@@ -1,0 +1,12 @@
+numpy
+python-dotenv
+langchain==0.1.0
+pandas
+google-api-python-client
+youtube_transcript_api
+sentence_transformers
+yandex-chain==0.0.6
+openpyxl
+faiss-cpu
+deepmultilingualpunctuation
+-e .
