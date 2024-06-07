@@ -31,7 +31,6 @@ class TextVBLoader():
                                         encode_kwargs = encode_kwargs)
 
         # model_emb = "YandexGPTEmbeddings"
-        # embeddings = YandexGPTEmbeddings(api_key="AQVNzDsUXxRc1WeyZQnn8bJKuuzc7sJM4o0lbXVu")
         save_db = '../../data/interim/vectorstore/divertito_db_CHUNK_SIZE{}CHUNK_OVERLAP{}_{}'.format(CHUNK_SIZE,
                                                                                                 CHUNK_OVERLAP,
                                                                                                 model_emb)
