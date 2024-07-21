@@ -1,3 +1,4 @@
+from IPython.display import HTML
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -132,4 +133,7 @@ class MemoryRAG():
                 "configurable": {"session_id": self.session_id}
             },  # constructs a key "abc123" in `store`.
         )["answer"]
-        return ans
+        html_string = f"""
+        <p>{ans}</p>
+        """
+        return HTML(ans)
