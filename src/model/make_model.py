@@ -2,6 +2,7 @@ import os
 import jwt
 import requests
 import time
+import openai
 from yandex_chain import YandexLLM
 from dotenv import load_dotenv
 from typing import Any, List, Mapping, Optional
@@ -60,9 +61,13 @@ class ChatLLM():
                                        use_lite=True,temperature = 0.2, max_tokens = 1000)
         return llm
     
-    def get_opeanai_llm(self):
-        llm = ChatOpenAI( temperature=0.1)
-        return llm
+    def get_opeanai_llm(self, model="gpt-3.5-turbo", job_id=None):
+        if job_id is None:
+            llm = ChatOpenAI( temperature=0.1, model=model)
+        else:
+            job = openai.fine_tuning.jobs.retrieve(job_id)
+            llm = ChatOpenAI( temperature=0.1, model=job.fine_tuned_model)
+        return llm.invoke
 
             
 
